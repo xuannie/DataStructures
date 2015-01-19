@@ -5,9 +5,11 @@
  * @version 1/16/2015
  *
  */
+
 class WordsLinkedList {
 	Word head;
 	int n;
+	protected static Word[]sortArray;
 	
 	/**
 	 * Default constructor creates a head with the value null and 0 number of words 
@@ -24,7 +26,7 @@ class WordsLinkedList {
 		Word a;
 		
 		for(a = head; a!=null; a=a.next){
-			System.out.printf("Word: %-10s, Count: %-4d %n", a.word, a.count);
+			System.out.printf("Word: %-10s, Count: %-4d\n", a.word, a.count);
 		}
 	}
 	
@@ -50,7 +52,6 @@ class WordsLinkedList {
 			find = this.searchList(text);
 		
 			if (find!=null){
-				System.out.print(find.word);
 				find.count++;
 			}else{
 				Word a = new Word(text);
@@ -81,7 +82,19 @@ class WordsLinkedList {
 	}
 
 	public void sortWords() {
-		// TODO Auto-generated method stub
+		Word pointer;
+		pointer = head;
 		
+		sortArray = new Word[n];
+		int i = 0;
+		
+		//put pointers to array
+		while(pointer!=null){
+			sortArray[i] = pointer;
+			i++;
+			pointer = pointer.next;
+		}
+		
+		//write sort method here
 	}
 }

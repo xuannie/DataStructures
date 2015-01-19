@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.ArrayList;
 
 /*
  * Main of Bible count program.
@@ -61,7 +60,7 @@ public class bibleCount {
 		BufferedReader reader = new BufferedReader(fr);
 		String str;
 		
-		int i = 0;
+		//int i = 0;
 		
 		while((str=reader.readLine())!=null){
 			wordLink.insertWord(str);
