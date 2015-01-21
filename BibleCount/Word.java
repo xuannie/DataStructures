@@ -9,12 +9,10 @@ public class Word {
 	
 	protected String word;
 	protected int count;
-	protected Word next;
 	
 	public Word(){
 		word = null;
 		count = 0;
-		next = null;
 	}
 	
 	/**

@@ -7,9 +7,9 @@
  */
 
 class WordsLinkedList {
-	Word head;
+	WordObject head;
 	int n;
-	protected static Word[]sortArray;
+	protected static WordObject[]sortArray;
 	
 	/**
 	 * Default constructor creates a head with the value null and 0 number of words 
@@ -23,10 +23,10 @@ class WordsLinkedList {
 	 * Prints out all words and count in an orderly fashion
 	 */
 	public void show(){
-		Word a;
+		WordObject a;
 		
 		for(a = head; a!=null; a=a.next){
-			System.out.printf("Word: %-25s, Count: %-10000d\n", a.word, a.count);
+			System.out.printf("Word: %-25s, Count: %-10000d\n", a.getWord(), a.getCount());
 		}
 	}
 	
@@ -42,19 +42,19 @@ class WordsLinkedList {
 	public void insertWord(String text){
 				
 		if (this.head == null){
-			Word a = new Word(text);
+			WordObject a = new WordObject(text);
 			a.next = head;
 			head = a;
 			n++;
 		}
 		else{
-			Word find;
+			WordObject find;
 			find = this.searchList(text);
 		
 			if (find!=null){
-				find.count++;
+				find.increaseCount();
 			}else{
-				Word a = new Word(text);
+				WordObject a = new WordObject(text);
 				a.next = head;
 				head = a;
 				n++;
@@ -70,11 +70,11 @@ class WordsLinkedList {
 	 * 
 	 * If word is not found, pointer is null. 
 	 */
-	public Word searchList(String search){
-		Word pointer; 
+	public WordObject searchList(String search){
+		WordObject pointer; 
 		pointer = head;
 		
-		while(pointer!=null && !((pointer.word).equals(search))){
+		while(pointer!=null && !((pointer.getWord()).equals(search))){
 			pointer = pointer.next;
 		}
 		
@@ -90,10 +90,10 @@ class WordsLinkedList {
 	 */
 	public void sortWords() {
 		
-		Word pointer;
+		WordObject pointer;
 		pointer = head;
 		
-		sortArray = new Word[n];
+		sortArray = new WordObject[n];
 		int i = 0;
 		
 		//put pointers to array
@@ -107,7 +107,7 @@ class WordsLinkedList {
 		quickSort(0, n-1);
 		
 		for (int j=0; j<20; j++){
-			System.out.printf("Word: %-25s | Frequency: %-6d\n", sortArray[j].word, sortArray[j].count);
+			System.out.printf("Word: %-25s | Frequency: %-6d\n", sortArray[j].getWord(), sortArray[j].getCount());
 		}
 
 	}
@@ -124,18 +124,18 @@ class WordsLinkedList {
 	      int l=left;
 	      int r=right;
 	      
-	      int midvalue = (sortArray[(l+r)/2]).count;
+	      int midvalue = (sortArray[(l+r)/2]).getCount();
 	      
 	      while (l<=r){
 	      
-	         while (sortArray[l].count>midvalue)
+	         while (sortArray[l].getCount()>midvalue)
 	            l++;
-	         while (sortArray[r].count<midvalue)
+	         while (sortArray[r].getCount()<midvalue)
 	            r--;
 	         
 	         if(l<=r){
 	         
-	            Word temp = sortArray[l];
+	            WordObject temp = sortArray[l];
 	            sortArray[l] = sortArray[r];
 	            sortArray[r] = temp;
 	            
