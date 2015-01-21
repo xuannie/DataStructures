@@ -4,11 +4,10 @@ import java.io.*;
  * Main of Bible count program.
  * 
  * @author Alexis Chuah
- * @version 1/16/2015
+ * @version 1/20/2015
  * 
  * <p>
  * Takes a text containing the entire Bible and displays the 20 most frequently used words.
- * Use linked lists
  * </p>
  * 
  */
@@ -16,7 +15,6 @@ import java.io.*;
 public class bibleCount {
 	
 	protected static WordsLinkedList wordLink = new WordsLinkedList();
-	//protected static ArrayList<Word> wordArray = new ArrayList<Word>();
 
 	public static void main(String[] args) throws IOException, FileNotFoundException{		
 				
@@ -24,26 +22,21 @@ public class bibleCount {
 		double processing, sorting;
 		
 		start = System.currentTimeMillis();
-		
+		//loads file
 		loadFile(args[0]);		
-		
 		stop = System.currentTimeMillis();
-		processing = stop-start;
-		System.out.println("Processing Time: " + ((processing)/1000.0));
 		
-		wordLink.show();
-		//System.out.println(wordLink.searchList("GOD"));
+		processing = stop-start;
 		
 		start = System.currentTimeMillis();
+		System.out.println("Top 20 words:");
 		wordLink.sortWords();
 		stop = System.currentTimeMillis();
-		
+
 		sorting = stop - start;
+		
+		System.out.println("Processing Time: " + ((processing)/1000.0));
 		System.out.println("Sorting Time: " + ((sorting)/1000.0));
-		
-		start = System.currentTimeMillis();	
-		
-		stop = System.currentTimeMillis();
 		System.out.println("Total Time: " + ((processing + sorting)/1000.0));
 	}
 
@@ -60,14 +53,10 @@ public class bibleCount {
 		BufferedReader reader = new BufferedReader(fr);
 		String str;
 		
-		//int i = 0;
-		
 		while((str=reader.readLine())!=null){
 			wordLink.insertWord(str);
 		}
 		
 		reader.close();
-		
 	}
-
 }
