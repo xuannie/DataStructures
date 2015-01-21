@@ -26,7 +26,7 @@ class WordsLinkedList {
 		WordObject a;
 		
 		for(a = head; a!=null; a=a.next){
-			System.out.printf("Word: %-25s, Count: %-10000d\n", a.getWord(), a.getCount());
+			System.out.printf("Word: %-25s, Count: %-6d\n", a.getWord(), a.getCount());
 		}
 	}
 	
