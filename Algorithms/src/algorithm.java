@@ -15,10 +15,12 @@ public class algorithm {
 	
 	public static void main(String[] args) {
 		String cons, exp;
-		
-		System.out.print("Enter consonant: ");
-		cons = kb.next();
-		n = checkInt(cons);
+		do{
+			System.out.print("Enter consonant: ");
+			cons = kb.next();
+			n = checkInt(cons);
+		}while (n==0);
+
 		
 		System.out.print("Enter exponent: ");
 		exp = kb.next();
@@ -29,14 +31,11 @@ public class algorithm {
 	
 	private static int checkInt(String num){
 		int number=0;
-		do{
 			try{
 				number = Integer.parseInt(num);
 			}catch(Exception e){
-				System.out.println("Not a valid number. Try again:");
-			}
-		}while(number==0);
-		
+				System.out.println("Not a valid number. Try again.");
+			}		
 		return number;
 	}
 
