@@ -1,0 +1,5 @@
+syntax: glob
+bin/ListElem.class
+bin/Person.class
+bin/TestMain.class
+bin/MyStack.class
