@@ -1,0 +1,6 @@
+Java Swing Program
+
+Paper - Ryan - As parts are done.
+(UI) Board 4/16, Spinner/Dice 4/20 click on button/spinner - Alexis
+Logic , Player class -  Colin
+Network 4/20 - Bikram
